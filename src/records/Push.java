@@ -1,10 +1,10 @@
 package records;
 
-public record Push(String phoneNumber, String message) implements Notification {
+public record Push(String deviceToken, String message) implements Notification {
 
     public Push {
-        if (phoneNumber == null || !phoneNumber.matches("\\d{10}")) {
-            throw new IllegalArgumentException("El número telefónico debe tener exactamente 10 dígitos");
+        if (deviceToken == null || deviceToken.trim().isEmpty()) {
+            throw new IllegalArgumentException("El token del dispositivo no puede ser nulo ni estar vacío");
         }
     }
 }
